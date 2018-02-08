@@ -1,0 +1,25 @@
+publish data where a=1 >> rs1 | publish data where rs2=@rs1 >> rs3
+
+
+
+RETURN_STRUCT 
+ long  rows
+ char *DataTypes
+ mocaDataRes *ReturnedData
+
+mocaDataRes
+ char **ColName    rs2
+ char *DataType    R
+ long NumOfRows    1
+ long NumOfColumns 1
+ mocaDataRow *Data ---> mocaDataRes
+                         char **ColName    rs1
+                         char *DataType    R
+                         long NumOfRows    1
+                         long NumOfColumns 1
+                         mocaDataRow *Data --->  mocaDataRes
+				  
+
+mocaDataRow
+    void **DataPtr
+    mocaDataRow *NextRow
